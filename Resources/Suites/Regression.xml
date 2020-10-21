@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="RegressionSuite Lekha">
+	<test name="TC_01_A">
+		<classes>
+			<class name="com.sri.browserTest.TestID_01_A_Navigate_to_XERO" />
+		</classes>
+	</test> 
+	<test name="TC_01_B">
+		<classes>
+			<class name="com.sri.browserTest.TestID_01_B_Incorrect_Password" />
+		</classes>
+	</test>
+	<test name="TC_01_C">
+		<classes>
+			<class name="com.sri.browserTest.TestID_01_C_Incorrect_Email" />
+		</classes>
+	</test> 
+	<test name="TC_01_D">
+		<classes>
+			<class name="com.sri.browserTest.TestID_01_D_Forgot_PassWord" />
+		</classes>
+	</test>
+	<test name="TC_02_A">
+		<classes>
+			<class name="com.sri.browserTest.TestID_02_A_SignUp_to_XDC" />
+		</classes>
+	</test> 
+	<test name="TC_02_B">
+		<classes>
+			<class name="com.sri.browserTest.TestID_02_B_SignUp_to_XDC" />
+		</classes>
+	</test> 
+	<test name="TC_02_C">
+		<classes>
+			<class name="com.sri.browserTest.TestID_02_C_SignUp_to_XDC" />
+		</classes>
+	</test> 
+	<test name="TC_02_D">
+		<classes>
+			<class name="com.sri.browserTest.TestID_02_D_SignUp_to_XDC" />
+		</classes>
+	</test> 
+	<test name="TC_02_E">
+		<classes>
+			<class name="com.sri.browserTest.TestID_02_E_SignUp_to_XDC" />
+		</classes>
+	</test> 
+	<test name="TC_04_A">
+		<classes>
+			<class name="com.sri.browserTest.TestID_04_A_Test_Logout_Functionality" />
+		</classes>
+	</test>   
+</suite> 
