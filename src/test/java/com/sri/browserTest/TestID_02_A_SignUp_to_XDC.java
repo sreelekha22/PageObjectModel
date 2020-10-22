@@ -1,13 +1,16 @@
 package com.sri.browserTest;
 
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.sri.BrowserPOpages.SignUp_to_XDC;
 import com.sri.utilities.TestBase;
 
-
+@Listeners(com.sri.extentReportAndListener.Listener.class)
 public class TestID_02_A_SignUp_to_XDC extends TestBase{
 	SignUp_to_XDC SignUp;
 	
@@ -15,9 +18,12 @@ public class TestID_02_A_SignUp_to_XDC extends TestBase{
 		super();
 	}
 	@BeforeSuite
+	public void startreport() {
+		oReport.createreport();
+	}
+	@BeforeClass
 	public void setUp() {
 		oBroUtil.initialization();
-		oReport.createreport();
 		SignUp = new SignUp_to_XDC();
 	}
 	@Test(priority = 1)
@@ -33,10 +39,12 @@ public class TestID_02_A_SignUp_to_XDC extends TestBase{
 	public void FillTrialPageTest() throws Exception {
 		SignUp.FillThePage();
 	}
-	@AfterSuite
+	@AfterClass
 	public void closingBrowser() throws Exception {
-		oReport.CloseReport();
 		oBroUtil.teardown();
 	}
-
+	@AfterSuite
+	public void closereport() {
+		oReport.CloseReport();
+	}
 }

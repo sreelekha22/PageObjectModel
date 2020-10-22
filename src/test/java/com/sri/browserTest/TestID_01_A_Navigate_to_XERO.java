@@ -1,8 +1,12 @@
 package com.sri.browserTest;
 
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -16,14 +20,13 @@ public class TestID_01_A_Navigate_to_XERO extends TestBase{
 	public TestID_01_A_Navigate_to_XERO() {
 		super();
 	}
-	
 	@BeforeSuite
-	public void setUp() {
-		oBroUtil.initialization();
+	public void startreport() {
 		oReport.createreport();
 	}
-	@BeforeMethod
-	public void openUrl() {
+	@BeforeClass
+	public void setUp() {
+		oBroUtil.initialization();
 		NavigateToXERO = new Navigate_to_XERO();
 	}
 	@Test(priority = 1)
@@ -41,11 +44,13 @@ public class TestID_01_A_Navigate_to_XERO extends TestBase{
 		
 	}
 
-	@AfterSuite
+	@AfterClass
 	public void closingBrowser() throws Exception {
-		oReport.CloseReport();
 		oBroUtil.teardown();
 	}
-
+	@AfterSuite
+	public void closereport() {
+		oReport.CloseReport();
+	}
 
 }

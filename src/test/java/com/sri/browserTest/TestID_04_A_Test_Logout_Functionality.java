@@ -1,7 +1,9 @@
 package com.sri.browserTest;
 
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeClass;
+
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -18,14 +20,14 @@ public class TestID_04_A_Test_Logout_Functionality extends TestBase{
 	public TestID_04_A_Test_Logout_Functionality() {
 		super();
 	}
-	
 	@BeforeSuite
+	public void startreport() {
+		oReport.createreport();
+		
+	}
+	@BeforeClass
 	public void setUp() {
 		oBroUtil.initialization();
-		oReport.createreport();
-	}
-	@BeforeMethod
-	public void openUrl() {
 		NavigateToXERO = new Navigate_to_XERO();
 	}
 	@Test(priority = 1)
@@ -52,10 +54,12 @@ public class TestID_04_A_Test_Logout_Functionality extends TestBase{
 		Loggingout.UserNameFieldValidation();
 	}
 	
-	@AfterSuite
+	@AfterClass
 	public void closingBrowser() throws Exception {
-		oReport.CloseReport();
 		oBroUtil.teardown();
 	}
-
+	@AfterSuite
+	public void closereport() {
+		oReport.CloseReport();
+	}
 }

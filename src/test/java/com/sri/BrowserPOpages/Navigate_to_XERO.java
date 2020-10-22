@@ -62,6 +62,7 @@ public class Navigate_to_XERO extends TestBase{
 		return HomePage;
 	}
 	public void validateHomePage() throws Exception {
+		ExtentTest logger = TestBase.logger;
 		if(HomePage.isDisplayed()) {
 			logger.log(LogStatus.PASS," User's Home Page is displayed ");
 		}else {

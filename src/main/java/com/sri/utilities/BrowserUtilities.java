@@ -20,9 +20,7 @@ import com.relevantcodes.extentreports.LogStatus;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BrowserUtilities extends TestBase{
-	//public WebDriver driver;
 	public Properties prop;
-	//public static ExtentTest logger;
 	public Properties Tprop;
 	
 public  BrowserUtilities(){
@@ -57,7 +55,6 @@ public void initialization() {
 			
 			WebDriverManager.chromedriver().setup();
 			((TestBase) this).driver = new ChromeDriver();
-			//System.out.println("browser utilities driver: " + driver);
 			
 		}else if(browserName.equals("firefox")){
 			

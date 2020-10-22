@@ -1,6 +1,8 @@
 package com.sri.browserTest;
 
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -16,9 +18,12 @@ public class TestID_02_C_SignUp_to_XDC extends TestBase{
 		super();
 	}
 	@BeforeSuite
+	public void startreport() {
+		oReport.createreport();
+	}
+	@BeforeClass
 	public void setUp() {
 		oBroUtil.initialization();
-		oReport.createreport();
 		SignUp = new SignUp_to_XDC();
 	}
 	@Test(priority = 1)
@@ -38,10 +43,12 @@ public class TestID_02_C_SignUp_to_XDC extends TestBase{
 	public void PrivacyPageTest() throws Exception {
 		SignUp.ValidatePrivacyLink();
 	}
-	@AfterSuite
+	@AfterClass
 	public void closingBrowser() throws Exception {
-		oReport.CloseReport();
 		oBroUtil.teardown();
 	}
-
+	@AfterSuite
+	public void closereport() {
+		oReport.CloseReport();
+	}
 }

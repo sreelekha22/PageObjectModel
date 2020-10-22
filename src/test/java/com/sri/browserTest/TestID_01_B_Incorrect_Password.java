@@ -1,6 +1,8 @@
 package com.sri.browserTest;
 
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -16,9 +18,12 @@ public class TestID_01_B_Incorrect_Password extends TestBase{
 		super();
 	}
 	@BeforeSuite
+	public void startreport() {
+		oReport.createreport();
+	}
+	@BeforeClass
 	public void setUp() {
 		oBroUtil.initialization();
-		oReport.createreport();
 		incorrectPwd = new Incorrect_Password();
 	}
 	@Test(priority = 1)
@@ -34,10 +39,12 @@ public class TestID_01_B_Incorrect_Password extends TestBase{
 	public void ErrorMsgTest() throws Exception {
 		incorrectPwd.validateErrorMsg();
 	}
-	@AfterSuite
+	@AfterClass
 	public void closingBrowser() throws Exception {
-		oReport.CloseReport();
 		oBroUtil.teardown();
 	}
-
+	@AfterSuite
+	public void closereport() {
+		oReport.CloseReport();
+	}
 }
